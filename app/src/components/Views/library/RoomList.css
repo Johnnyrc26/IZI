@@ -1,0 +1,78 @@
+@tailwind components;
+
+@layer components{
+
+  body{
+    @apply pt-24 
+  }
+  #root{
+    @apply flex flex-col items-center w-11/12
+  }
+
+  .EmptyRooms{
+    @apply text-center font-semibold text-gray-500
+  }
+
+  .Container{
+    @apply flex flex-col items-center w-full mx-auto
+  }
+
+  .Grid{
+    @apply mb-20 mt-8
+  }
+
+  .Card{
+    @apply mb-8 bg-white rounded-lg shadow-md overflow-hidden flex flex-col items-center
+  }
+
+  .Img{
+    @apply w-[-webkit-fill-available] h-auto object-cover 
+  }
+
+  .InfoCard{
+    @apply flex flex-col gap-2.5 m-4
+  }
+
+  .InfoCardLeft{
+    @apply flex flex-col gap-1 
+  }
+
+  .nameRoom{
+    @apply text-2xl font-semibold
+  }
+
+  .city{
+    @apply italic text-sm
+  }
+
+  .descriptionRoom{
+    @apply text-lg
+  }
+
+  .InfoCardRight{
+    @apply items-end
+  }
+
+  .Price{
+    @apply flex flex-col gap-1 items-end font-bold
+  }
+
+  .LinkTo {
+    @apply py-2 bg-blue-500 text-white rounded-md shadow hover:bg-blue-600 text-center w-64 mb-5 
+  }
+
+  .Pagination{
+    @apply mb-9 
+  }
+
+  .Pagination button{
+   @apply ml-6 mr-6 bg-slate-300 rounded-md p-2
+  }
+
+  @media (min-width: 375px) and (max-width: 1080px) {
+    .Container{
+      @apply flex flex-col items-center w-96 mx-auto
+    }
+  }
+  
+}

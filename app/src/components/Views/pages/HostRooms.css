@@ -1,0 +1,10 @@
+@tailwind components;
+
+@layer components{
+  .Container{
+    @apply mt-28
+  }
+  .LinkToHab {
+    @apply py-2 bg-blue-500 text-white rounded-md shadow hover:bg-blue-600 text-center w-64 mb-5 ml-12
+  }
+}
