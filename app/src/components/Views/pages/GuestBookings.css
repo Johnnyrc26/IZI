@@ -5,7 +5,7 @@
   @apply mt-28 mb-20
 }
 
-@media (min-width: 375px) and (max-width: 1080px) {
+@media (min-width: 375px) and (max-width: 3000px) {
   .sectionBooking{
     @apply flex flex-col items-center w-96 mx-auto
   }

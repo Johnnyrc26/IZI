@@ -76,7 +76,7 @@
     @apply text-3xl font-semibold pb-2
   }
 
-  @media (min-width: 375px) and (max-width: 1080px) {
+  @media (min-width: 375px) and (max-width: 3000px) {
     .MessageContainer{
       @apply flex flex-col w-96 mx-auto 
     }
