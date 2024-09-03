@@ -8,8 +8,13 @@ function RoomList() {
   const [filteredRooms, setFilteredRooms] = useState([])
   const [searchQuery, setSearchQuery] = useState('')
   const [currentPage, setCurrentPage] = useState(1)
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
   const roomsPerPage = 5
   const navigate = useNavigate()
+
+  useEffect(() => {
+    setIsLoggedIn(logic.isUserLoggedIn())
+  }, [])
 
   useEffect(() => {
     logic.getAllRooms()
@@ -44,7 +49,11 @@ function RoomList() {
   }
 
   const handleReserveClick = (roomId) => {
-    navigate(`/create-booking/${roomId}`)
+    if (!isLoggedIn) {
+      navigate('/login')
+    } else {
+      navigate(`/create-booking/${roomId}`)
+    }
   }
 
   const handleSearch = (query) => {
