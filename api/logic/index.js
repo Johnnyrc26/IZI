@@ -18,6 +18,7 @@ import getRoomBookings from './getRoomBookings.js'
 import getAllBookingsByGuest from './getAllBookingsByGuest.js'
 import deleteBookingByHost from './deleteBookingByHost.js'
 
+import apiData from './apiData.js'
 
 
 const logic = {
@@ -39,7 +40,9 @@ const logic = {
   getBlockedDatesByRoom,
   getRoomBookings,
   getAllBookingsByGuest,
-  deleteBookingByHost
+  deleteBookingByHost,
+
+  apiData
 
 }
 
