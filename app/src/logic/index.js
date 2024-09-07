@@ -15,11 +15,13 @@ import editRoom from './editRoom';
 import deleteRoom from './deleteRoom';
 
 import createBooking from './createBooking'
-import getBlockedDatesByRoom from './getBlockedDatesByRoom';
+import getBlockedDatesByRoom from './getBlockedDatesByRoom'
 import getRoomBookings from './getRoomBookings'
 import getGuestInfo from './getGuestInfo'
 import getAllBookingsByGuest from './getAllBookingsByGuest'
-import deleteBookingByHost from './deleteBookingByHost';
+import deleteBookingByHost from './deleteBookingByHost'
+
+import getAllApiData from './getAllApiData';
 
 const logic = {
   registerUser,
@@ -44,7 +46,10 @@ const logic = {
   getRoomBookings,
   getGuestInfo,
   getAllBookingsByGuest,
-  deleteBookingByHost
+  deleteBookingByHost,
+
+  getAllApiData
+
 }
 
 export default logic

@@ -5,6 +5,7 @@ import SearchBar from "../library/SearchBar"
 
 function RoomList() {
   const [rooms, setRooms] = useState([])
+  const [vqRooms, setVqRooms] = useState([])
   const [filteredRooms, setFilteredRooms] = useState([])
   const [searchQuery, setSearchQuery] = useState('')
   const [currentPage, setCurrentPage] = useState(1)
@@ -20,20 +21,35 @@ function RoomList() {
     logic.getAllRooms()
       .then((rooms) => {
         setRooms(rooms)
-        setFilteredRooms(rooms)
       })
       .catch(error => alert(error.message))
   }, [])
 
   useEffect(() => {
-    const filtered = rooms.filter(room =>
-      room.nameRoom.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      room.city.toLowerCase().includes(searchQuery.toLowerCase())
-    )
-    setFilteredRooms(filtered)
-    setCurrentPage(1)
-  }, [searchQuery, rooms])
+    logic.getAllApiData()
+      .then((hotels) => {
+        setVqRooms(hotels)
+      })
+      .catch(error => alert(error.message))
+  }, [])
 
+  useEffect(() => {
+    // Filtrar las habitaciones por el query de búsqueda
+    const filtered = [
+      ...rooms.filter(room =>
+        room.nameRoom.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        room.city.toLowerCase().includes(searchQuery.toLowerCase())
+      ),
+      ...vqRooms.filter(room =>
+        room.nombre.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        room.direccion.toLowerCase().includes(searchQuery.toLowerCase())
+      )
+    ]
+    setFilteredRooms(filtered)
+    setCurrentPage(1)  // Reiniciar a la primera página después de la búsqueda
+  }, [searchQuery, rooms, vqRooms])
+
+  // Calcular el índice para la paginación
   const indexOfLastRoom = currentPage * roomsPerPage
   const indexOfFirstRoom = indexOfLastRoom - roomsPerPage
   const currentRooms = filteredRooms.slice(indexOfFirstRoom, indexOfLastRoom)
@@ -66,30 +82,35 @@ function RoomList() {
       <section className='SectionCard'>
         <ul className="Grid">
           {currentRooms.map(room => (
-            <li className='Card' key={room.id}>
+            <li className='Card' key={room.id || room._id}>
               <div className="Img">
-                <img src={room.image} alt='ImgRoom' className='Image' />
+                <img 
+                  src={room.image || (room.imagenes && room.imagenes[0]?.url)} 
+                  alt='ImgRoom' 
+                  className='Image' 
+                />
               </div>
               <div className='InfoCard'>
                 <div className="InfoCardLeft">
-                  <p className="nameRoom">{room.nameRoom}</p>
-                  <p className="city">{room.city}</p>
-                  <p className="descriptionRoom">{room.description}</p>
+                  <p className="nameRoom">{room.nameRoom || room.nombre}</p>
+                  <p className="city">{room.city || room.direccion}</p>
+                  <p className="descriptionRoom">{room.description || room.email || 'Descripción no disponible'}</p>
                 </div>
                 <div className="InfoCardRight">
                   <div className='Price'>
                     <p className="ppn">Precio por noche</p>
-                    <p className="priceRoom">{room.price}</p>
+                    <p className="priceRoom">{room.price || 'N/A'}</p>
                   </div>
                 </div>
               </div>
               <div className='LinkTo'>
-                <button onClick={() => handleReserveClick(room.id)}>Reservar</button>
+                <button onClick={() => handleReserveClick(room.id || room._id)}>Reservar</button>
               </div>
             </li>
           ))}
         </ul>
       </section>
+
       <div className='Pagination'>
         <button onClick={handlePreviousPage} disabled={currentPage === 1}>
           Anterior

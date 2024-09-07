@@ -148,5 +148,5 @@ function Booking() {
 
 export default Booking;
 
-//TODO MEJORAR EL PAGO con validaciones ¿hacer un modelo de payment? 
+//TODO WIP MEJORAR EL PAGO con validaciones ¿hacer un modelo de payment STRIPE? 
 
