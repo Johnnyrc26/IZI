@@ -21,8 +21,6 @@ import getGuestInfo from './getGuestInfo'
 import getAllBookingsByGuest from './getAllBookingsByGuest'
 import deleteBookingByHost from './deleteBookingByHost'
 
-import getAllApiData from './getAllApiData';
-
 const logic = {
   registerUser,
   isUserLoggedIn,
@@ -47,8 +45,6 @@ const logic = {
   getGuestInfo,
   getAllBookingsByGuest,
   deleteBookingByHost,
-
-  getAllApiData
 
 }
 

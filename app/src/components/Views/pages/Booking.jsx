@@ -82,7 +82,7 @@ function Booking() {
       <div>
         
         <div className="Info">
-          <img src={room.image} alt='Room' className='Image' />
+          <img src={room.image || (room.imagenes && room.imagenes[0]?.url)} alt='Room' className='Image' />
           <div className='InfoCard'>
             <div className="InfoCardLeft">
               <p className="nameRoom">{room.nameRoom}</p>

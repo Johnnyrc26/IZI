@@ -12,7 +12,7 @@ const getAllUserRooms = (userId) => {
         throw new NotFoundError('user not found')
       }
       
-      return Room.find({author: userId}).select('-__v').lean()
+      return Room.find({manager: userId}).select('-__v').lean()
         .catch(error => { throw new SystemError(error.message) })
         .then(rooms => {
           rooms.forEach(rooms => {

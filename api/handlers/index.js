@@ -19,7 +19,6 @@ import getAllBookingsByGuestHandler from './getAllBookingsByGuestHandler.js';
 import deleteBookingByHostHandler from './deleteBookingByHostHandler.js'
 
 import apiDataHandler from './apiDataHandler.js'
-import getAllApiDataHandler from './getAllApiDataHandler.js';
 
 const handlers = {
   registerUserHandler,
@@ -43,7 +42,6 @@ const handlers = {
   deleteBookingByHostHandler,
 
   apiDataHandler, 
-  getAllApiDataHandler
 
 }
 

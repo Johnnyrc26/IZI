@@ -35,7 +35,7 @@ function UserRooms() {
             {rooms.map(room => (
               <li className='Card' key={room.id}>
                 <div className="Img">
-                  <img src={room.image} alt='Room' className='Image' />
+                  <img src={room.image || (room.imagenes && room.imagenes[0]?.url)} alt='Room' className='Image' />
                 </div>
                 <div className='InfoCard'>
                   <div className="InfoCardLeft">
