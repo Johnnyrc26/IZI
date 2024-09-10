@@ -39,7 +39,7 @@ const apiData = () => {
               facebook: poi.facebook,
               twitter: poi.twitter,
               instagram: poi.instagram,
-              manager: '66df05983359d01987f49a5e',
+              manager: '66d878adbb0fb67868b4bfc1',
               imagenes: poi.imagenes.map(imagen => ({
                 url: imagen.url
               }))
