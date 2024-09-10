@@ -13,6 +13,8 @@ mongoose.connect(MONGODB_URL)
 
     api.use(cors())
 
+    api.use(express.json())
+
     api.get('/', (_req, res) => res.send(''))
 
     api.use('/', router)
@@ -21,4 +23,4 @@ mongoose.connect(MONGODB_URL)
 
     api.listen(PORT, () => console.log(`API running on PORT ${PORT}`))
   })
-  .catch(error => console.error(error))
+  .catch(error => console.error(error.message))

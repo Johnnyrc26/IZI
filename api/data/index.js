@@ -5,6 +5,6 @@ import Booking from './Booking.js'
 export {
   User,
   Room,
-  Booking
+  Booking,
 }
 

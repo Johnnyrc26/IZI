@@ -82,7 +82,7 @@ function Booking() {
       <div>
         
         <div className="Info">
-          <img src={room.image} alt='Room' className='Image' />
+          <img src={room.image || (room.imagenes && room.imagenes[0]?.url)} alt='Room' className='Image' />
           <div className='InfoCard'>
             <div className="InfoCardLeft">
               <p className="nameRoom">{room.nameRoom}</p>
@@ -148,5 +148,5 @@ function Booking() {
 
 export default Booking;
 
-//TODO MEJORAR EL PAGO con validaciones ¿hacer un modelo de payment? 
+//TODO WIP MEJORAR EL PAGO con validaciones ¿hacer un modelo de payment STRIPE? 
 

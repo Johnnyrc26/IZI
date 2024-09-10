@@ -1,36 +1,75 @@
-import { Schema, model, Types } from 'mongoose';
+import { Schema, model, Types } from 'mongoose'
 
-const { ObjectId } = Types;
+const { ObjectId } = Types
+
+const imagenSchema = new Schema({
+  url: {
+    type: String,
+    required: false,
+  },
+}, { _id: false })
 
 const room = new Schema({
   author: {
     type: ObjectId,
-    required: true,
+    required: false,
     ref: 'User'
   },
   nameRoom: {
     type: String,
-    required: true,
+    required: false,
   },
   region: {
     type: String,
-    required: true,
+    required: false,
   },
   city: {
     type: String,
-    required: true
+    required: false
   },
   image: {
     type: String,
-    required: true
+    required: false
+  },
+  telefono: {
+    type: String,
+    required: false,
+  },
+  url: {
+    type: String,
+    required: false,
+  },
+  email: {
+    type: String,
+    required: false,
+  },
+  latitud: {
+    type: Number,
+    required: false,
+  },
+  longitud: {
+    type: Number,
+    required: false,
+  },
+  facebook: {
+    type: String,
+    required: false,
+  },
+  twitter: {
+    type: String,
+    required: false,
+  },
+  instagram: {
+    type: String,
+    required: false,
   },
   description: {
     type: String,
-    required: true
+    required: false
   },
   price: {
     type: String,
-    required: true
+    required: false
   },
   manager: {
     type: ObjectId,
@@ -39,9 +78,10 @@ const room = new Schema({
   isBlocked: {
     type: Boolean,
     default: false
-  }
-});
+  },
+  imagenes: [imagenSchema],
+})
 
-const Room = model('Room', room);
+const Room = model('Room', room)
 
-export default Room;
+export default Room

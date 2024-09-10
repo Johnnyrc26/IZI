@@ -24,6 +24,8 @@ router.get('/bookings/:roomId', routes.getRoomBookingsHandler)
 router.get('/users/:userId/bookings', routes.getAllBookingsByGuestHandler)
 router.delete('/rooms/:roomId/manage/booking', jsonBodyParser, routes.deleteBookingByHostHandler)
 
+router.post('/api-data', jsonBodyParser, routes.apiDataHandler)
+
 export default router;
 
 

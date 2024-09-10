@@ -20,18 +20,20 @@ function RoomList() {
     logic.getAllRooms()
       .then((rooms) => {
         setRooms(rooms)
-        setFilteredRooms(rooms)
       })
       .catch(error => alert(error.message))
   }, [])
 
   useEffect(() => {
-    const filtered = rooms.filter(room =>
-      room.nameRoom.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      room.city.toLowerCase().includes(searchQuery.toLowerCase())
-    )
+
+    const filtered = [
+      ...rooms.filter(room =>
+        room.nameRoom.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        room.city.toLowerCase().includes(searchQuery.toLowerCase())
+      )
+    ]
     setFilteredRooms(filtered)
-    setCurrentPage(1)
+    setCurrentPage(1)  
   }, [searchQuery, rooms])
 
   const indexOfLastRoom = currentPage * roomsPerPage
@@ -68,18 +70,22 @@ function RoomList() {
           {currentRooms.map(room => (
             <li className='Card' key={room.id}>
               <div className="Img">
-                <img src={room.image} alt='ImgRoom' className='Image' />
+                <img 
+                  src={room.image || (room.imagenes && room.imagenes[0]?.url)} 
+                  alt='ImgRoom' 
+                  className='Image' 
+                />
               </div>
               <div className='InfoCard'>
                 <div className="InfoCardLeft">
                   <p className="nameRoom">{room.nameRoom}</p>
                   <p className="city">{room.city}</p>
-                  <p className="descriptionRoom">{room.description}</p>
+                  <p className="descriptionRoom">{room.description || 'Descripción no disponible'}</p>
                 </div>
                 <div className="InfoCardRight">
                   <div className='Price'>
                     <p className="ppn">Precio por noche</p>
-                    <p className="priceRoom">{room.price}</p>
+                    <p className="priceRoom">{room.price || 'N/A'}</p>
                   </div>
                 </div>
               </div>
@@ -90,6 +96,7 @@ function RoomList() {
           ))}
         </ul>
       </section>
+
       <div className='Pagination'>
         <button onClick={handlePreviousPage} disabled={currentPage === 1}>
           Anterior
