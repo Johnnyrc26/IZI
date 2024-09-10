@@ -9,7 +9,7 @@ const apiDataHandler = (req, res, next) => {
     res.status(200).json(data)
     })
     .catch(error => {
-    next(new SystemError(error.messafe))
+    next(new SystemError(error.message))
   })
 }
 
