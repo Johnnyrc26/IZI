@@ -14,7 +14,9 @@ function Home() {
         <TopBar />
       </Header>
     </div>
-    <RoomList></RoomList>
+    <div>
+    <RoomList/>
+    </div>
   </div>
 }
 

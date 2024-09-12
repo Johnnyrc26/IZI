@@ -20,6 +20,20 @@ const SearchBar = ({ onSearch }) => {
         placeholder="¿A dónde quieres ir?"
         className="SearchBar"
       />
+      <input
+        value={query}
+        type="text"
+        onChange={handleChange}
+        placeholder="Selecciona tus fechas"
+        className="SearchBar"
+      />
+      <input
+        value={query}
+        type="text"
+        onChange={handleChange}
+        placeholder="Cuantas personas"
+        className="SearchBar"
+      />
     </div>
   )
 }

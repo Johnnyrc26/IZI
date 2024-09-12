@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import logic from "../../../logic/index"
 import { useNavigate } from "react-router-dom"
 import SearchBar from "../library/SearchBar"
+import Regions from "../library/Regions"
 
 function RoomList() {
   const [rooms, setRooms] = useState([])
@@ -9,7 +10,7 @@ function RoomList() {
   const [searchQuery, setSearchQuery] = useState('')
   const [currentPage, setCurrentPage] = useState(1)
   const [isLoggedIn, setIsLoggedIn] = useState(false)
-  const roomsPerPage = 5
+  const roomsPerPage = 16
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -33,7 +34,7 @@ function RoomList() {
       )
     ]
     setFilteredRooms(filtered)
-    setCurrentPage(1)  
+    setCurrentPage(1)
   }, [searchQuery, rooms])
 
   const indexOfLastRoom = currentPage * roomsPerPage
@@ -65,21 +66,23 @@ function RoomList() {
   return (
     <div className='Container'>
       <SearchBar onSearch={handleSearch} />
+      <Regions></Regions>
       <section className='SectionCard'>
         <ul className="Grid">
           {currentRooms.map(room => (
             <li className='Card' key={room.id}>
               <div className="Img">
-                <img 
-                  src={room.image || (room.imagenes && room.imagenes[0]?.url)} 
-                  alt='ImgRoom' 
-                  className='Image' 
+                <img
+                  src={room.image || (room.imagenes && room.imagenes[0]?.url)}
+                  alt='ImgRoom'
+                  className='Image'
                 />
               </div>
               <div className='InfoCard'>
                 <div className="InfoCardLeft">
                   <p className="nameRoom">{room.nameRoom}</p>
                   <p className="city">{room.city}</p>
+                  <p className="region">{room.region}</p>
                   <p className="descriptionRoom">{room.description || 'Descripción no disponible'}</p>
                 </div>
                 <div className="InfoCardRight">
