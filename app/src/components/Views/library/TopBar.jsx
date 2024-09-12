@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'; 
 import { IoHomeOutline } from 'react-icons/io5';  
 import DropdownMenu from './DropdownMenu'; 
-import MyIcon from '../../../../public/IZI.svg'
+import MyIcon from '/IZI.svg'
 
 import './TopBar.css'; 
 
