@@ -10,6 +10,7 @@ const construirUrl = (estado) => {
   return `${API_VQ}/${estadoCodificado}/${categoria}`
 }
 
+
 const regiones = {
   'Distrito Capital': 'Norte',
   'Miranda': 'Norte',
