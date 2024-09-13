@@ -75,7 +75,9 @@ const procesarEstado = (estado) => {
               twitter: poi.twitter,
               instagram: poi.instagram,
               manager: '66d878adbb0fb67868b4bfc1',
-              imagenes: poi.imagenes.map(imagen => ({ url: imagen.url })),
+              imagenes: poi.imagenes.map(imagen => ({
+                url: imagen.url
+              })),
             })
 
             return hotel.save()
