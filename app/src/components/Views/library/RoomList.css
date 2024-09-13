@@ -2,64 +2,70 @@
 
 @layer components{
 
-  body{
-    @apply pt-24 
-  }
   #root{
-    @apply flex flex-col items-center w-11/12
+    @apply flex flex-col items-center
   }
 
   .EmptyRooms{
     @apply text-center font-semibold text-gray-500
   }
 
-  .Container{
-    @apply flex flex-col items-center w-full mx-auto
+  .Contenedor{
+    @apply flex flex-col items-center w-full mx-auto mt-11
+  }
+
+  .TitleHome{
+    @apply text-4xl pb-12 font-normal
   }
 
   .Grid{
-    @apply mb-20 mt-8 
+    @apply mb-3 pl-14 pr-14
   }
 
   .Card{
-    @apply mb-8 bg-white rounded-lg shadow-md overflow-hidden flex flex-col items-center
+    @apply mb-8 bg-white rounded-lg shadow-md overflow-hidden flex flex-col items-center;
+    @apply relative h-full min-h-[350px]
   }
 
   .Img{
-    @apply w-[-webkit-fill-available] h-auto object-cover 
+    @apply w-[-webkit-fill-available] h-80 object-cover 
   }
 
   .InfoCard{
-    @apply flex flex-col gap-2.5 m-4 w-full pl-5 pr-5
+    @apply flex flex-col gap-2.5 m-4 w-full pl-5 pr-5;
+    @apply flex-grow h-full
   }
 
-  .InfoCardLeft{
-    @apply flex flex-col gap-1 
+  .InfoCardLeft {
+    @apply flex flex-col gap-1 w-2/3; 
+    @apply justify-start; 
+    @apply flex-shrink-0 h-auto;
   }
 
-  .nameRoom{
-    @apply text-2xl font-semibold 
+  .nameRoom {
+    @apply text-2xl font-semibold pt-12;
+    @apply min-h-[40px];
   }
 
-  .city{
-    @apply italic text-sm
+  .city {
+    @apply italic text-sm;
+    @apply min-h-[20px];
   }
 
-  .descriptionRoom{
-    @apply text-lg
+  .descriptionRoom {
+    @apply text-lg line-clamp-2; 
+    @apply min-h-[40px]; 
   }
-
-  .InfoCardRight{
-    @apply items-end
+  .InfoCardRight {
+    @apply static mt-auto; 
+    @apply h-auto;
   }
 
   .Price{
     @apply flex flex-col gap-1 items-end font-bold
   }
 
-  .LinkTo {
-    @apply py-2 bg-blue-500 text-white rounded-md shadow hover:bg-blue-600 text-center w-64 mb-5 
-  }
+
 
   .Pagination{
     @apply mb-9 
@@ -71,10 +77,10 @@
 
   @media (min-width: 395px) and (max-width: 3000px) {
     .Container{
-      @apply flex flex-col items-center w-full mx-auto
+      @apply flex flex-col items-center w-full mx-auto 
     }
     .Grid {
-      @apply grid-cols-4 grid-rows-4 grid gap-6 
+      @apply grid-cols-4 grid-rows-2 grid gap-6 
     }
 
     .Card {

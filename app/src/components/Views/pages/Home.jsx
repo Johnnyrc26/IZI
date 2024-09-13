@@ -1,23 +1,21 @@
-import './Home.css'
+import React from 'react'
 import Header from '../core/Header'
-import TopBar from '../library/TopBar'
-
+import TopBarHome from '../library/Desktop/TopBarHome' 
 import RoomList from '../library/RoomList'
 
-
-
 function Home() {
-
-  return <div>
+  return (
     <div>
-      <Header>
-        <TopBar />
-      </Header>
+      <div>
+        <Header>
+          <TopBarHome />
+        </Header>
+      </div>
+      <div>
+        <RoomList />
+      </div>
     </div>
-    <div>
-    <RoomList/>
-    </div>
-  </div>
+  );
 }
 
-export default Home
+export default Home;

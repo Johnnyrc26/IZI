@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import logic from "../../../logic/index"
 import { useNavigate } from "react-router-dom"
 import SearchBar from "../library/SearchBar"
-import Regions from "../library/Regions"
+import Banner from '../library/Desktop/Banner'
 
 function RoomList() {
   const [rooms, setRooms] = useState([])
@@ -10,7 +10,7 @@ function RoomList() {
   const [searchQuery, setSearchQuery] = useState('')
   const [currentPage, setCurrentPage] = useState(1)
   const [isLoggedIn, setIsLoggedIn] = useState(false)
-  const roomsPerPage = 16
+  const roomsPerPage = 8
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -59,46 +59,48 @@ function RoomList() {
     }
   }
 
-  const handleSearch = (query) => {
-    setSearchQuery(query)
-  }
-
   return (
-    <div className='Container'>
-      <SearchBar onSearch={handleSearch} />
-      <Regions></Regions>
-      <section className='SectionCard'>
+
+    <div className='Contenedor'>
+      <h1 className="TitleHome">Tú eliges dónde comienza la aventura.</h1>
+
+      <section className="SectionCard">
         <ul className="Grid">
-          {currentRooms.map(room => (
-            <li className='Card' key={room.id}>
+          {currentRooms.map((room) => (
+            <li
+              className="Card"
+              key={room.id}
+              onClick={() => handleReserveClick(room.id)} 
+            >
               <div className="Img">
                 <img
                   src={room.image || (room.imagenes && room.imagenes[0]?.url)}
-                  alt='ImgRoom'
-                  className='Image'
+                  alt="ImgRoom"
+                  className="Image"
                 />
               </div>
-              <div className='InfoCard'>
+              <div className="InfoCard">
                 <div className="InfoCardLeft">
                   <p className="nameRoom">{room.nameRoom}</p>
                   <p className="city">{room.city}</p>
                   <p className="region">{room.region}</p>
-                  <p className="descriptionRoom">{room.description || 'Descripción no disponible'}</p>
+                  <p className="descriptionRoom">
+                    {room.description || 'Descripción no disponible'}
+                  </p>
                 </div>
                 <div className="InfoCardRight">
-                  <div className='Price'>
+                  <div className="Price">
                     <p className="ppn">Precio por noche</p>
                     <p className="priceRoom">{room.price || 'N/A'}</p>
                   </div>
                 </div>
               </div>
-              <div className='LinkTo'>
-                <button onClick={() => handleReserveClick(room.id)}>Reservar</button>
-              </div>
             </li>
           ))}
         </ul>
       </section>
+
+      <Banner></Banner>
 
       <div className='Pagination'>
         <button onClick={handlePreviousPage} disabled={currentPage === 1}>
