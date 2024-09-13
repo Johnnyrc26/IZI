@@ -1,0 +1,54 @@
+@tailwind components;
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+@tailwind components;
+
+
+@layer components {
+  .topbar {
+    @apply relative w-full h-96 bg-cover bg-center
+  }
+
+  .brand {
+    @apply absolute top-14 left-14 transform -translate-y-1/2 text-white text-6xl font-righteous
+  }
+
+  .searchBar{
+    @apply flex items-center justify-center pr-0 pl-0 pt-52 
+  }
+
+  .search-form{
+    @apply p-4 space-x-1 rounded-3xl
+  }
+
+  .search-form input,
+  .search-form button {
+    @apply px-4 py-2 border rounded-md;
+    @apply focus:outline-none focus:ring-2 focus:ring-blue-500;
+  }
+
+  .search-form input[type="text"],
+  .search-form input[type="number"] {
+    @apply flex-1;
+  }
+
+  .search-form input[type="date"] {
+    @apply w-44; /* Ajusta el ancho de los campos de fecha */
+  }
+
+  .search-form button {
+    @apply bg-blue-500 text-white hover:bg-blue-600;
+  }
+
+  .search-form button:hover {
+    @apply bg-blue-600;
+  }
+  
+
+  .nav{
+    @apply absolute pt-32 right-14 transform -translate-y-1/2 text-white text-xl font-normal
+  }
+
+
+  
+}

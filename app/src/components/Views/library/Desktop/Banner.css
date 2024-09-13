@@ -1,0 +1,11 @@
+@tailwind components;
+
+@layer components{
+  .banner {
+    @apply relative w-11/12 h-72 bg-cover bg-center rounded-2xl mb-8 flex items-center justify-center;
+  }
+
+  .slogan {
+    @apply text-white text-8xl font-righteous text-center;
+  }
+}
