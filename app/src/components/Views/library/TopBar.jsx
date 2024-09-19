@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom'; 
 import { IoHomeOutline } from 'react-icons/io5';  
 import DropdownMenu from './DropdownMenu'; 
-import MyIcon from '/IZI.svg'
 
 import './TopBar.css'; 
 
@@ -21,7 +20,7 @@ const TopBar = () => {
           <IoHomeOutline />
         </Link>
         <div className="page-logo">
-          <img src={MyIcon} alt="IZI Logo" onClick={scrollTop}/>
+          <p onClick={scrollTop}>KAU</p>
         </div>
         <DropdownMenu className="dropdown-menu" />
       </div>
