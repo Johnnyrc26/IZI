@@ -8,4 +8,13 @@
   .slogan {
     @apply text-white text-8xl font-righteous text-center;
   }
+
+  @media (max-width: 430px) and (max-width: 3000px){
+    .banner{
+      @apply relative w-80 h-36 bg-center rounded-2xl mb-8 flex items-center justify-center
+    }
+    .slogan{
+      @apply text-2xl
+    }
+  }
 }

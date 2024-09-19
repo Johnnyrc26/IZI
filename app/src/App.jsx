@@ -10,10 +10,12 @@ import ManageRoom from './components/Views/pages/ManageRoom'
 import Booking from './components/Views/pages/Booking'
 import GuestBookings from './components/Views/pages/GuestBookings'
 import ManageProfile from './components/Views/pages/ManageProfile'
+import About from './components/Views/pages/About'
 import Alert from './components/Views/core/Alert'
 
 
 import './App.css'
+import { IoArrowBackOutline } from 'react-icons/io5'
 function App() {
   const [message, setMessage] = useState(null)
 
@@ -27,6 +29,7 @@ function App() {
         < Routes >
           
           <Route path='/' element={<Home />} />
+          <Route path='/about' element={<About />} />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<Register />} />
           <Route path='/rooms' element={<CreateRoom />} />

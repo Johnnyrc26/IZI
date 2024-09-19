@@ -62,7 +62,7 @@ function RoomList() {
   return (
 
     <div className='Contenedor'>
-      <h1 className="TitleHome">Tú eliges dónde comienza la aventura.</h1>
+            <p className="TitleHome ">Tú eliges dónde comienza la aventura.</p>
 
       <section className="SectionCard">
         <ul className="Grid">
