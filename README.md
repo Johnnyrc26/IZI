@@ -1,5 +1,6 @@
 # [IZI](https://izi.netlify.app/) 🇻🇪🧳
  
+(This is my first web application and now it is my biggest personal project, which has been constantly evolving and growing.)
 
 IZI is a Property Management System (PMS) designed to enhance reservation services and overall property management for hotels and lodges in Venezuela.
 
